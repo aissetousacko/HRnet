@@ -15,7 +15,7 @@ export const validationSchema = yup.object().shape({
     .string()
     .oneOf(
       ['sales', 'marketing', 'engineering', 'human-resources', 'legal'],
-      'invalid Department'
+      'Invalid Department'
     )
     .required('Required'),
   street: yup.string().required('Required'),

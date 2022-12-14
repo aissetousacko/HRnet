@@ -1,61 +1,19 @@
 import { Form, Formik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import CustomInput from '../components/CustomInput'
 import CustomSelect from '../components/CustomSelect'
+import { states } from '../data/states'
 import { validationSchema } from '../schemas'
+import { useDispatch } from 'react-redux'
+import { submitForm } from '../features/createSlice'
+import Modale from '../components/Modale'
 
 const Home = () => {
+  const [open, isOpen] = useState(false)
+  const dispatch = useDispatch()
   return (
     <div className="home">
       <h1>Create Employee</h1>
-
-      {/* <form className="form">
-        <div className="form__content">
-          <div className="form__wrapper">
-            <div className="form__input">
-              <label>First Name</label>
-              <input type="text" id="firstName" />
-            </div>
-            <div className="form__input">
-              <label>Last Name</label>
-              <input type="text" id="firstName" />
-            </div>
-            <div className="form__input">
-              <label>Date of Birth</label>
-              <input type="text" id="firstName" />
-            </div>
-            <div className="form__input">
-              <label>Start Date</label>
-              <input type="text" id="firstName" />
-            </div>
-          </div>
-
-          <div className="form__wrapper">
-            <div className="form__input">
-              <label>City</label>
-              <input type="text" id="firstName" />
-            </div>
-            <div className="form__input">
-              <label>State</label>
-              <input type="text" id="firstName" />
-            </div>
-            <div className="form__input">
-              <label>Department</label>
-              <input type="text" id="firstName" />
-            </div>
-            <div className="form__input">
-              <label>Street</label>
-              <input type="text" id="firstName" />
-            </div>
-            <div className="form__input">
-              <label>Zip Name</label>
-              <input type="text" id="firstName" />
-            </div>
-          </div>
-        </div>
-
-        <button className="form__submit">Submit</button>
-      </form> */}
 
       <Formik
         initialValues={{
@@ -70,11 +28,14 @@ const Home = () => {
           zipCode: '',
         }}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
+        onSubmit={(values, { resetForm }) => {
+          /* setTimeout(() => {
             alert(JSON.stringify(values, null, 2))
             setSubmitting(false)
-          }, 400)
+          }, 400) */
+          dispatch(submitForm(values))
+          isOpen(true)
+          resetForm()
         }}
       >
         {({ isSubmitting }) => (
@@ -101,7 +62,14 @@ const Home = () => {
               <div className="form__wrapper">
                 <CustomInput label="Street" name="street" type="text" />
                 <CustomInput label="City" name="city" type="text" />
-                <CustomInput label="State" name="state" type="text" />
+                <CustomSelect label="State" name="state">
+                  <option value="">Select a state</option>
+                  {states.map((state) => (
+                    <option value={state.name} key={state.abbreviation}>
+                      {state.name}
+                    </option>
+                  ))}
+                </CustomSelect>
                 <CustomInput label="Zip Code" name="zipCode" type="number" />
               </div>
               <button type="submit" className="form__submit">
@@ -111,6 +79,8 @@ const Home = () => {
           </Form>
         )}
       </Formik>
+      {/* Modale */}
+      <Modale open={open} isOpen={isOpen} message="Employee created !" />
     </div>
   )
 }
