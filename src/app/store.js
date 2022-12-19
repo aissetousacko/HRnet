@@ -3,6 +3,6 @@ import createReducer from '../features/createSlice'
 
 export const store = configureStore({
   reducer: {
-    create: createReducer,
+    employees: createReducer,
   },
 })

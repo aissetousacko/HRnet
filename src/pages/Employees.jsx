@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import Table from '../components/Table'
 
 const Employees = () => {
   return (
     <div className="employees">
       <h1>Current Employees</h1>
-      <Link to="/">Home</Link>
+      <Table />
+      {/* <Link to="/">Home</Link> */}
     </div>
   )
 }

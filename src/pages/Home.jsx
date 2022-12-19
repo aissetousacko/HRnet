@@ -4,12 +4,13 @@ import CustomInput from '../components/CustomInput'
 import CustomSelect from '../components/CustomSelect'
 import { states } from '../data/states'
 import { validationSchema } from '../schemas'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { submitForm } from '../features/createSlice'
 import Modale from '../components/Modale'
 
 const Home = () => {
   const [open, isOpen] = useState(false)
+  const employees = useSelector((state) => state.employees.employees)
   const dispatch = useDispatch()
   return (
     <div className="home">
@@ -29,10 +30,7 @@ const Home = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
-          /* setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            setSubmitting(false)
-          }, 400) */
+          values.id = employees.length + 1
           dispatch(submitForm(values))
           isOpen(true)
           resetForm()
@@ -79,7 +77,6 @@ const Home = () => {
           </Form>
         )}
       </Formik>
-      {/* Modale */}
       <Modale open={open} isOpen={isOpen} message="Employee created !" />
     </div>
   )
