@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import Box from '@mui/material/Box'
-import { useSelector } from 'react-redux'
 import { states } from '../data/states'
 
 const formatData = (str) => {
@@ -84,29 +83,33 @@ const columns = [
   },
 ]
 
-const Table = () => {
+const Table = ({ data }) => {
   const [rowsGridData, setRowsGridData] = useState([])
-  const employees = useSelector((state) => state.employees.employees)
 
+  //*Display all the rows
   useEffect(() => {
-    if (employees.length > 0) {
-      console.log('rowsGridData: ', rowsGridData)
-
-      employees.forEach((employee) => {
-        console.log('employee: ', employee)
+    if (data.length > 0) {
+      // console.log('rowsGridData: ', rowsGridData)
+      setRowsGridData([])
+      // console.log('data in table: ', data)
+      data.forEach((employee) => {
+        // console.log('employee in table: ', employee)
         setRowsGridData((rowsGridData) => [...rowsGridData, rowsData(employee)])
       })
     }
-  }, [employees])
+  }, [data])
 
-  console.log('rowsGridData after useEffect', rowsGridData)
+  // console.log('rowsGridData apres useEffect', rowsGridData)
 
   return (
-    <Box sx={{ height: 500, width: '100%' }}>
+    <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid
+        sortingOrder={['desc', 'asc']}
         rows={rowsGridData}
         columns={columns}
         getRowId={(row) => row.id}
+        rowsPerPageOptions={[5, 10, 25, 50, 100]}
+        rowsPerPage={5}
       />
     </Box>
   )

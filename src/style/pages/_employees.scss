@@ -1,4 +1,15 @@
 .employees {
   margin: 0 50px;
   width: 100%;
+
+  &__searchbar {
+    margin: 20px 0;
+    input {
+      height: 2.5vh;
+      background-color: $color-3;
+      border-radius: 5px;
+      border: 2px solid transparent;
+      outline: none;
+    }
+  }
 }
