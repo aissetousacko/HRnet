@@ -6,7 +6,8 @@ import { states } from '../data/states'
 import { validationSchema } from '../schemas'
 import { useDispatch, useSelector } from 'react-redux'
 import { submitForm } from '../features/createSlice'
-import Modale from '../components/Modale'
+// import Modale from '../components/Modale'
+import Modal from '@aissetousck/oc-14-modal-library/dist/components/Modal'
 
 const Home = () => {
   const [open, isOpen] = useState(false)
@@ -77,7 +78,7 @@ const Home = () => {
           </Form>
         )}
       </Formik>
-      <Modale open={open} isOpen={isOpen} message="Employee created !" />
+      <Modal open={open} isOpen={isOpen} message="Employee created !" />
     </div>
   )
 }

@@ -89,17 +89,12 @@ const Table = ({ data }) => {
   //*Display all the rows
   useEffect(() => {
     if (data.length > 0) {
-      // console.log('rowsGridData: ', rowsGridData)
       setRowsGridData([])
-      // console.log('data in table: ', data)
       data.forEach((employee) => {
-        // console.log('employee in table: ', employee)
         setRowsGridData((rowsGridData) => [...rowsGridData, rowsData(employee)])
       })
     }
   }, [data])
-
-  // console.log('rowsGridData apres useEffect', rowsGridData)
 
   return (
     <Box sx={{ height: 400, width: '100%' }}>

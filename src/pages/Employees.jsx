@@ -9,16 +9,13 @@ const Employees = () => {
   const [data, setData] = useState(employees)
 
   const searchBar = (value) => {
-    // console.log('inputValue: ', value)
     const datas = []
     if (value !== '') {
       const filteredData = data.filter((employee) =>
         employee.firstName.toLowerCase().includes(value.toLowerCase())
       )
 
-      // console.log('filteredData', filteredData)
       datas.push(filteredData)
-      // console.log('datas after push', ...datas)
 
       renderData(...datas)
     } else {
@@ -33,25 +30,6 @@ const Employees = () => {
         setData(datas)
       }
     }
-
-    // const filteredItems = data.filter((data) => {
-    //   console.log(
-    //     'data in filter',
-    //     data
-    //   )
-    //   return (
-    //     data.firstName.toLowerCase().includes(value.toLowerCase()) ||
-    //     data.lastName.toLowerCase().includes(value.toLowerCase()) ||
-    //     data.startDate.toLowerCase().includes(value.toLowerCase()) ||
-    //     data.department.toLowerCase().includes(value.toLowerCase()) ||
-    //     data.birthDate.toLowerCase().includes(value.toLowerCase()) ||
-    //     data.street.toLowerCase().includes(value.toLowerCase()) ||
-    //     data.city.toLowerCase().includes(value.toLowerCase()) ||
-    //     data.state.toLowerCase().includes(value.toLowerCase()) ||
-    //     data.codeZip.toLowerCase().includes(value.toLowerCase())
-    //   )
-    // })
-    // console.log('filteredItems: ', filteredItems)
   }
 
   return (
