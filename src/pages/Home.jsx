@@ -6,13 +6,18 @@ import { states } from '../data/states'
 import { validationSchema } from '../schemas'
 import { useDispatch, useSelector } from 'react-redux'
 import { submitForm } from '../features/createSlice'
-// import Modale from '../components/Modale'
+// import Modal from '../components/Modal'
 import Modal from '@aissetousck/oc-14-modal-library/dist/components/Modal'
 
+/**
+ * Display the form that register an employee
+ * @returns {JSX.Element} Home component
+ */
 const Home = () => {
   const [open, isOpen] = useState(false)
   const employees = useSelector((state) => state.employees.employees)
   const dispatch = useDispatch()
+
   return (
     <div className="home">
       <h1>Create Employee</h1>

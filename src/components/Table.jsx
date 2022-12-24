@@ -7,6 +7,7 @@ const formatData = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+//Get the employee's data and returns the good format
 const rowsData = (employee) => {
   const id = employee.id
   const firstName = formatData(employee.firstName)
@@ -83,10 +84,15 @@ const columns = [
   },
 ]
 
+/**
+ * Display the table
+ * @param {Object} data
+ * @returns {JSX.Element} Table component
+ */
 const Table = ({ data }) => {
   const [rowsGridData, setRowsGridData] = useState([])
 
-  //*Display all the rows
+  //Display all the rows
   useEffect(() => {
     if (data.length > 0) {
       setRowsGridData([])

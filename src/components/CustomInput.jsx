@@ -1,6 +1,12 @@
 import React from 'react'
 import { useField } from 'formik'
 
+/**
+ * Custom the text and date input field
+ * @param {String} label
+ * @param {String} props
+ * @returns {JSX.Element} CustomInput component
+ */
 const CustomInput = ({ label, ...props }) => {
   const [field, meta] = useField(props)
   return (

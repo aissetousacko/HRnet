@@ -1,5 +1,8 @@
 import * as yup from 'yup'
 
+/**
+ * Rules form the validation of the form with Yup
+ */
 export const validationSchema = yup.object().shape({
   firstName: yup
     .string()

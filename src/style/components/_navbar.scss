@@ -7,6 +7,11 @@
   align-items: center;
   position: relative;
 
+  img {
+    width: 300px;
+    height: 280px;
+  }
+
   &__links {
     width: 75%;
     display: flex;

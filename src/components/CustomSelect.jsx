@@ -1,10 +1,14 @@
 import React from 'react'
 import { useField } from 'formik'
 
+/**
+ * Custom the select input field
+ * @param {String} label
+ * @param {String} props
+ * @returns {JSX.Element} CustomSelect component
+ */
 const CustomSelect = ({ label, ...props }) => {
   const [field, meta] = useField(props)
-  /* console.log('fields: ', field)
-  console.log('meta: ', meta) */
   return (
     <div className="form__input">
       <label>{label}</label>

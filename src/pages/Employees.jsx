@@ -3,6 +3,10 @@ import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import Table from '../components/Table'
 
+/**
+ * Display all the employees
+ * @returns {JSX.Element} Employees component
+ */
 const Employees = () => {
   const employees = useSelector((state) => state.employees.employees)
   const ref = useRef()
@@ -22,7 +26,7 @@ const Employees = () => {
       renderData()
     }
 
-    //* When the input change
+    // When the input change
     function renderData(datas = []) {
       if (datas.length === 0 && ref.current.value === '') {
         setData(employees)

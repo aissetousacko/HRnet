@@ -2,6 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
+/**
+ * Display the navigation bar
+ * @returns {JSX.Element} Navbar component
+ */
 const Navbar = () => {
   return (
     <div className="navbar">

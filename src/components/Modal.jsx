@@ -1,6 +1,13 @@
 import React from 'react'
 
-const Modale = ({ open, isOpen, message }) => {
+/**
+ * display the modal dialog
+ * @param {Boolean} open
+ * @param {Function} isOpen
+ * @param {String} message
+ * @returns {JSX.Element} Modal Component
+ */
+const Modal = ({ open, isOpen, message }) => {
   if (open) {
     return (
       <div className="modale">
@@ -13,4 +20,4 @@ const Modale = ({ open, isOpen, message }) => {
   }
 }
 
-export default Modale
+export default Modal
