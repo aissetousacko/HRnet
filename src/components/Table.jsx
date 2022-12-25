@@ -20,11 +20,9 @@ const rowsData = (employee) => {
   const street = employee.street
 
   const state = states
-    .map((st) => {
-      if (st.name.includes(employee.state)) {
-        return st.abbreviation
-      }
-    })
+    .map((st) =>
+      st.name.includes(employee.state) ? st.abbreviation : undefined
+    )
     .filter((st) => st !== undefined)
     .toString()
 
