@@ -7,7 +7,7 @@ import { useField } from 'formik'
  * @param {String} props
  * @returns {JSX.Element} CustomSelect component
  */
-const CustomSelect = ({ label, ...props }) => {
+const CustomSelect = ({ label, id, ...props }) => {
   const [field, meta] = useField(props)
   return (
     <div className="form__input">
@@ -15,6 +15,7 @@ const CustomSelect = ({ label, ...props }) => {
       <select
         {...field}
         {...props}
+        id={id}
         className={meta.touched && meta.error ? 'input-error' : ''}
       />
       {meta.touched && meta.error && <p className="error">{meta.error}</p>}

@@ -46,15 +46,35 @@ const Home = () => {
           <Form className="form">
             <div className="form__content">
               <div className="form__wrapper">
-                <CustomInput label="First Name" name="firstName" type="text" />
-                <CustomInput label="Last Name" name="lastName" type="text" />
+                <CustomInput
+                  label="First Name"
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                />
+                <CustomInput
+                  label="Last Name"
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                />
                 <CustomInput
                   label="Date of Birth"
+                  id="birthDate"
                   name="birthDate"
                   type="date"
                 />
-                <CustomInput label="Start Date" name="startDate" type="date" />
-                <CustomSelect label="Department" name="department">
+                <CustomInput
+                  label="Start Date"
+                  id="startDate"
+                  name="startDate"
+                  type="date"
+                />
+                <CustomSelect
+                  label="Department"
+                  id="department"
+                  name="department"
+                >
                   <option value="">Select a department</option>
                   <option value="sales">Sales</option>
                   <option value="marketing">Marketing</option>
@@ -64,9 +84,14 @@ const Home = () => {
                 </CustomSelect>
               </div>
               <div className="form__wrapper">
-                <CustomInput label="Street" name="street" type="text" />
-                <CustomInput label="City" name="city" type="text" />
-                <CustomSelect label="State" name="state">
+                <CustomInput
+                  label="Street"
+                  id="street"
+                  name="street"
+                  type="text"
+                />
+                <CustomInput label="City" id="city" name="city" type="text" />
+                <CustomSelect label="State" id="state" name="state">
                   <option value="">Select a state</option>
                   {states.map((state) => (
                     <option value={state.name} key={state.abbreviation}>
@@ -74,7 +99,12 @@ const Home = () => {
                     </option>
                   ))}
                 </CustomSelect>
-                <CustomInput label="Zip Code" name="zipCode" type="number" />
+                <CustomInput
+                  label="Zip Code"
+                  id="zipCode"
+                  name="zipCode"
+                  type="number"
+                />
               </div>
               <button type="submit" className="form__submit">
                 Submit
