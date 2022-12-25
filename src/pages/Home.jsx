@@ -7,7 +7,7 @@ import { validationSchema } from '../schemas'
 import { useDispatch, useSelector } from 'react-redux'
 import { submitForm } from '../features/createSlice'
 // import Modal from '../components/Modal'
-import Modal from '@aissetousck/oc-14-modal-library/dist/components/Modal'
+import Modal from 'oc-14-modal-lib/dist/components/Modal'
 
 /**
  * Display the form that register an employee
