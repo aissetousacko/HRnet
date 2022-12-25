@@ -9,9 +9,11 @@ import { useField } from 'formik'
  */
 const CustomInput = ({ label, ...props }) => {
   const [field, meta] = useField(props)
+  console.log('field ', field)
+  console.log('meta ', meta)
   return (
     <div className="form__input">
-      <label>{label}</label>
+      <label htmlFor={field.name}>{label}</label>
       <input
         {...field}
         {...props}

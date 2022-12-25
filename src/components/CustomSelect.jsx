@@ -11,7 +11,7 @@ const CustomSelect = ({ label, ...props }) => {
   const [field, meta] = useField(props)
   return (
     <div className="form__input">
-      <label>{label}</label>
+      <label htmlFor={field.name}>{label}</label>
       <select
         {...field}
         {...props}
