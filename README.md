@@ -6,7 +6,8 @@
 
 ## Presentation
 
-HRNet is an internal web application for the company Wealth Health that manage employee records.
+HRNet is an internal web application for the company Wealth Health that manage employee records.<br/>
+[View the site](https://oc-14-hrnet-7nf3-czedkntli-aissetousackos-projects.vercel.app/)
 
 ## Prerequisites
 
